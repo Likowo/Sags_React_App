@@ -54,13 +54,14 @@ function App() {
       <h1> Welcome to Sparkle Access Global Services (SAGS)</h1>
       {/* //NarBar = Foodhandler/Alcohol training course;Food manager Procto Services;Notary Services; DJ services; */}
       <span> Who We Are </span>
-      <p> SAGs is a service company providing you educational and entertainment services <br/> Click on the CHOOSE SERVICE button to browse through the different types of services we offer </p>
+      <p> SAGS is a service company providing you educational and entertainment services <br/> Click on the CHOOSE SERVICE button to browse through the different types of services we offer </p>
       <br/> <br/>
       <h2> Type of Service : {serviceType.serviceType} </h2>
-      <img src={serviceType.image} alt='' />
+      <img id='image' src={serviceType.image} alt='' />
 
       <div>
-        <button onClick={changeCount}> CHOOSE SERVICE </button>
+        {/* //Created functional button to change the serviceType variable when ever count changes in the array of abjects called services */}
+        <button className='btn' onClick={changeCount}> CHOOSE SERVICE </button>
       </div>
     </div>
   );
