@@ -4,38 +4,47 @@ import {useState,useEffect} from 'react';
 
 function App() {
   //-------------- Declare What Hooks Are Needed
-  const [service, setService] = useState('');
+  
+  const [serviceType, setServiceType] = useState(``);
   const[count, setCount] = useState(0);
 
-  const services = [
+  let services = [
     {
-   serviceType: `FoodHandle and Alcohol Training Course`,
-   image:(``)
+   serviceType: "FoodHandle and Alcohol Server Training Course",
+   image:(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhMoxhEGTE_e9_lp2ngSiA7oXmIdEJQFPCuw&usqp=CAU`),
+  //  image:(`https://www.cherylslastcall.com/images/alcohol-server-permit-waitress.gif`),
    }, 
    {
     serviceType: `Food Manager Procto Services`,
-    image:(``)
+    image:(`https://cdn.statefoodsafety.com/blog/2019/08/proctor_supervise_examinee-compressor.jpg`),
     }, 
     {
       serviceType: `Notary Services`,
-      image:(``)
+      image:(``),
       }, 
       {
         serviceType: `DJ Services`,
-        image:(``)
+        image:(``),
         },    
    ]
 
    //--------------Declare What Functions Are Needed and how they specifically change the State
 
-   const changeService = () => {
-        setService(service)
-   }
+  //  const changeService = () => {
+  //       setServiceType(services)
+  //  }
 
    const changeCount = () => {
         setCount(count +1)
    }
-   
+
+   // using Hook Functions;   useEffect(() => {},[]) ----> {Renders a Function and Changes state *when Necessary* before the application loads (or) re-renders}
+   useEffect(() => {
+    setServiceType(services[count])
+    console.log(serviceType)
+   },
+   [count])
+  
   return (
     <div className="App">
       <title>www.sags.com</title>
@@ -44,11 +53,11 @@ function App() {
       <span> Who we Are </span>
       <p> SAGs is a service company providing you educational and entertainment services <br/> Click on the CHOOSE SERVICE button to browse through the different types of services we offer </p>
       <br/> <br/>
-      <h2> Type of Service : {service.serviceType} </h2>
-      <img src={services.image} alt='' />
+      <h2> Type of Service : {serviceType.serviceType} </h2>
+      <img src={serviceType.image} alt='' />
 
       <div>
-        {/* <button onClick={} > CHOOSE SERVICE </button> */}
+        <button onClick={changeCount}> CHOOSE SERVICE </button>
       </div>
       
 
